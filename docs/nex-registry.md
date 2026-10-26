@@ -15,14 +15,14 @@ Wire facts sourced from `scratch/decompile-lethal-league-blaze/RECON.md` and
 - Slug: `lethal-league-blaze`
 - Title ID: `01003AB00983C000`
 - NEX version: 4.6.2 (+ NEX_MM); Pia 5.14.0; PIA_UNITY 0.13.0
-- Requested port base: **23130** (next free after `full-metal-furies` 23120
+- Requested port base: **23170** (23130 was taken by `tmnt-shredders-revenge`, 23160 requested by `rivals-of-aether`; verified against switch-nex `bin/title-ports.json` 2026-10-26; after `full-metal-furies` 23120
   in `switch-nex/bin/title-ports.json`; auth = base, secure = base+1,
   healthz = base+2 per `switch-nex/titles/README.md`)
 - Protocols: MatchmakeExtension + NATTraversal; NO DataStore, NO Ranking
 - Auth shape: RendezVous Login (NNID + Siglo jobs); no BAAS/DAuth/AAuth
 
 ```go
-{"lethal-league-blaze", 23130, "<game-server-id>", func(e *protocols.Env) {
+{"lethal-league-blaze", 23170, "<game-server-id>", func(e *protocols.Env) {
 	e.StationScheme = "prudps"
 	e.Pia = protocols.LegacyPia() // Pia 5.14.0, pre-5.19 cutover
 	e.Match = protocols.NewMatchmakingStore()

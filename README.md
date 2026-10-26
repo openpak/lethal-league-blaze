@@ -30,10 +30,10 @@ go run ./cmd/lethal-league-blazed
 
 | Setting | Default | Meaning |
 | --- | --- | --- |
-| `-addr` | `:23132` | HTTP listen address (`/healthz`, `/readyz`) |
-| `-nex-auth` / `LLB_NEX_AUTH` | `127.0.0.1:23130` | NEX auth (RendezVous) UDP listener to probe |
-| `-nex-secure` / `LLB_NEX_SECURE` | `127.0.0.1:23131` | NEX secure UDP listener to probe |
-| `LLB_PORT_BASE` | `23130` | Requested NEX port base for this title |
+| `-addr` | `:23172` | HTTP listen address (`/healthz`, `/readyz`) |
+| `-nex-auth` / `LLB_NEX_AUTH` | `127.0.0.1:23170` | NEX auth (RendezVous) UDP listener to probe |
+| `-nex-secure` / `LLB_NEX_SECURE` | `127.0.0.1:23171` | NEX secure UDP listener to probe |
+| `LLB_PORT_BASE` | `23170` | Requested NEX port base for this title |
 
 ## Docs
 

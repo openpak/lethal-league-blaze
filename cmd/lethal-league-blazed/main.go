@@ -29,7 +29,7 @@ import (
 )
 
 var (
-	addr       = flag.String("addr", ":23132", "HTTP listen address (/healthz, /readyz)")
+	addr       = flag.String("addr", ":23172", "HTTP listen address (/healthz, /readyz)")
 	authAddr   = flag.String("nex-auth", "", "NEX auth (RendezVous) UDP address, host:port (env LLB_NEX_AUTH)")
 	secureAddr = flag.String("nex-secure", "", "NEX secure UDP address, host:port (env LLB_NEX_SECURE)")
 )
@@ -45,7 +45,7 @@ func main() {
 }
 
 // config names the NEX listeners this title's switch-nexd instance serves.
-// Defaults follow the requested port base 23130 (auth = base, secure =
+// Defaults follow the requested port base 23170 (auth = base, secure =
 // base+1, this daemon's HTTP = base+2); flags win over env, env over defaults.
 type config struct {
 	authAddr   string
@@ -54,8 +54,8 @@ type config struct {
 
 func configFromEnv(authFlag, secureFlag string) config {
 	return config{
-		authAddr:   firstNonEmpty(authFlag, os.Getenv("LLB_NEX_AUTH"), "127.0.0.1:23130"),
-		secureAddr: firstNonEmpty(secureFlag, os.Getenv("LLB_NEX_SECURE"), "127.0.0.1:23131"),
+		authAddr:   firstNonEmpty(authFlag, os.Getenv("LLB_NEX_AUTH"), "127.0.0.1:23170"),
+		secureAddr: firstNonEmpty(secureFlag, os.Getenv("LLB_NEX_SECURE"), "127.0.0.1:23171"),
 	}
 }
 
@@ -91,5 +91,5 @@ func portBase() int {
 			return n
 		}
 	}
-	return 23130
+	return 23170
 }
