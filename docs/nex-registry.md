@@ -22,7 +22,7 @@ Wire facts sourced from `scratch/decompile-lethal-league-blaze/RECON.md` and
 - Auth shape: RendezVous Login (NNID + Siglo jobs); no BAAS/DAuth/AAuth
 
 ```go
-{"lethal-league-blaze", 23170, "<game-server-id>", func(e *protocols.Env) {
+{"lethal-league-blaze", 23170, "a3267987", func(e *protocols.Env) {
 	e.StationScheme = "prudps"
 	e.Pia = protocols.LegacyPia() // Pia 5.14.0, pre-5.19 cutover
 	e.Match = protocols.NewMatchmakingStore()
@@ -33,15 +33,21 @@ Wire facts sourced from `scratch/decompile-lethal-league-blaze/RECON.md` and
 }}
 ```
 
-## Outstanding keys (TODO-KEY)
+## Key recovery (2026-10-27) — TODO-KEY closed
 
-1. Numeric NEX game-server ID (the `%08x` arg in
-   `g%08x-%%.s.n.srv.nintendo.net`) + RendezVous port: code constants, need
-   Ghidra on `exefs/main.dec` or a live capture.
-2. NEX login params / auth-flow constants (username/password derivation for
-   the RendezVous NNID/Siglo flow).
-3. NEX 4.6.2 DDL method IDs for the MatchmakeExtension calls used
-   (browse/random/create/join/leave).
+- Game server ID `21117E00`, access key `a3267987`: same-struct
+  native construction in `PiaSettings::GetInternetInitSettings`
+  (`0x10cfb80`) — ID into `w21` at `0x10cfc28/2c`, stored
+  `[x19+0x1c]`; key string from literal slot `0x33461F0`
+  (→ `0x35AFB70` = `"a3267987"`) at `[x19+0x20]`.
+- Registry status: **REGISTERED** — entry + `bin/title-ports.json`
+  + `switch-nex/docs/lethal-league-blaze.md`.
+
+## Still outstanding
+
+1. RendezVous port + NEX login params (NNID/Siglo derivation).
+2. NEX 4.6.2 DDL method IDs for the MatchmakeExtension calls used
+   (browse/random/create/join/leave) — first routed boot will show.
 
 ## Notes for the integrator
 
