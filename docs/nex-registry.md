@@ -33,15 +33,14 @@ Wire facts sourced from `scratch/decompile-lethal-league-blaze/RECON.md` and
 }}
 ```
 
-## Key recovery (2026-10-27) — TODO-KEY closed
+## Key recovery
 
 - Game server ID `21117E00`, access key `a3267987`: same-struct
   native construction in `PiaSettings::GetInternetInitSettings`
   (`0x10cfb80`) — ID into `w21` at `0x10cfc28/2c`, stored
   `[x19+0x1c]`; key string from literal slot `0x33461F0`
   (→ `0x35AFB70` = `"a3267987"`) at `[x19+0x20]`.
-- Registry status: **REGISTERED** — entry + `bin/title-ports.json`
-  + `switch-nex/docs/lethal-league-blaze.md`.
+- Registry entry: `bin/title-ports.json` + `switch-nex/docs/lethal-league-blaze.md`.
 
 ## Still outstanding
 
