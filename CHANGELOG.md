@@ -1,6 +1,6 @@
 # Changelog — lethal-league-blaze
 
-## v0.1.0 — unreleased
+## v0.1.0 — 2026-11-04
 
 - `lethal-league-blazed`: title front with `/healthz` and `/readyz` (probes the
   NEX auth/secure listeners), env-driven config, and a middleware client stub
